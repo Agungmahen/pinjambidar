@@ -25,6 +25,7 @@ class AuthController extends Controller
         
         $data = new User();
         $data -> name = $req-> name;
+        $data -> level = "admin";
         $data -> password = Hash::make($req->password);
         $data -> save();
         session()->flash('pesan','Pendaftaran Berhasil');
