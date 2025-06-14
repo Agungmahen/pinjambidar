@@ -37,9 +37,9 @@ Register
 		<i class="fa-solid fa-user-plus me-2"></i>Register Akun
 	</h3>
 
-	@if(Session::has('message'))
+	@if(Session::has('pesan'))
 	<div class="alert alert-success">
-		{{ Session::get('message') }}
+		{{ Session::get('pesan') }}
 	</div>
 	@endif
 

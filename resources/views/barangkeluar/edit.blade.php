@@ -7,7 +7,6 @@
         background-color: #f8f9fa;
     }
 </style>
-
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg border-0 rounded-4" style="min-width: 400px;">
         <div class="card-header bg-success text-light text-center rounded-top-4">
@@ -16,9 +15,9 @@
         <div class="card-body p-4">
             
             {{-- Notifikasi --}}
-            @if (session('success'))
+            @if (session('pesan'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fa-solid fa-circle-check me-2"></i>{{ session('success') }}
+                    <i class="fa-solid fa-circle-check me-2"></i>{{ session('pesan') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif

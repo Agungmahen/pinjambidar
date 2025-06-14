@@ -18,6 +18,7 @@ Route::get('barangkeluar',[BarangKeluarController::class,'index']);
 Route::get('tambahbarangkeluar',[BarangKeluarController::class,'add']);
 Route::post('tambahbarangkeluar',[BarangKeluarController::class,'addproses']);
 Route::get('editbarangkeluar/{id}',[BarangKeluarController::class,'edit']);
+Route::get('hapusbarangkeluar/{id}',[BarangKeluarController::class,'hapus']);
 Route::post('editbarangkeluar/{id}',[BarangKeluarController::class,'editproses']);
 
 Route::get('login', [AuthController::class, 'login'])->name('login');

@@ -58,7 +58,7 @@
                                     <a href="{{ url('editbarangkeluar/' . $item->id) }}" class="btn btn-warning btn-sm rounded-pill me-1">
                                         <i class="fa-solid fa-pen-to-square"></i> Edit
                                     </a>
-                                    <a href="{{ url('hapusbarangmasuk/' . $item->id) }}" class="btn btn-danger btn-sm rounded-pill"
+                                    <a href="{{ url('hapusbarangkeluar/' . $item->id) }}" class="btn btn-danger btn-sm rounded-pill"
                                        onclick="return confirm('Yakin ingin menghapus data ini?')">
                                         <i class="fa-solid fa-trash"></i> Hapus
                                     </a>

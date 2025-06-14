@@ -53,24 +53,42 @@ public function edit($id, Request $req){
 
 }
 
-public function editproses(Request $req, $id){
-    $masuk = BarangMasukModel::where('kodebarangmasuk',$req->kodebarangmasuk)->first();
-    $keluar = BarangKeluarModel::where('kodebarang',$req->kodebarangmasuk)->first();
+public function editproses(Request $req, $id)
+{
+    $data = BarangKeluarModel::findOrFail($id); // Data sebelum diubah
+    $masuk = BarangMasukModel::where('kodebarangmasuk', $data->kodebarang)->first();
 
-    $data = BarangKeluarModel::findOrFail($id);
-    $data -> kodebarang = $req->kodebarangmasuk;
-    $data -> jumlah = $req->jumlah;
-    $data -> save();
+    if (!$masuk) {
+        return redirect()->back()->with('eror', 'Data barang masuk tidak ditemukan');
+    }
 
-    if($masuk){
-        if($req->jumlah <= $masuk ->jumlahbarang){
-            $masuk -> jumlahbarang -= ($req -> jumlah += $masuk -> jumlah);
-            $masuk -> save();
-            return redirect()->back()->with('pesan','Berhasil Edit Data');
-        }else{
-            return redirect()->back()->with('eror','Gagal Di edit');
-        }
+    // Kembalikan jumlah lama ke stok
+    $masuk->jumlahbarang += $data->jumlah;
+
+    // Cek apakah stok cukup untuk dikurangi dengan jumlah baru
+    if ($req->jumlah <= $masuk->jumlahbarang) {
+        // Update data keluar
+        $data->kodebarang = $req->kodebarangmasuk;
+        $data->jumlah = $req->jumlah;
+        $data->save();
+
+        // Kurangi stok dengan jumlah baru
+        $masuk->jumlahbarang -= $req->jumlah;
+        $masuk->save();
+
+        return redirect()->back()->with('pesan', 'Berhasil Edit Data');
+    } else {
+        return redirect()->back()->with('eror', 'Jumlah melebihi stok');
     }
 }
+
+
+
+public function hapus($id){
+        $data = BarangKeluarModel::findOrFail($id);
+        $data->delete();
+        session()->flash('Pesan', 'Data Berhasil dihapus');
+        return redirect()->back();
+    }
 
 }

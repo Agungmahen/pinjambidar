@@ -58,7 +58,7 @@
                 <button type="submit" class="btn btn-success">
                     <i class="fa-solid fa-paper-plane me-1"></i>Kirim
                 </button>
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">
+                <a href="{{ url('barangmasuk') }}" class="btn btn-secondary">
                     <i class="fa-solid fa-arrow-left me-1"></i>Kembali
                 </a>
             </div>

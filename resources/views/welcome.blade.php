@@ -16,53 +16,52 @@
     {{-- <nav class="navbar navbar-expand-lg navbar-dark bg-light"> --}}
       <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow">
 
-        <div class="container-fluid">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZ--DVJrjEIlDffr0wFkn_itwUUPYrggwVw&s" width="3%" alt="">
-          {{-- <img src="{{asset('image/logo.jpg')}}" width="3%" alt=""> --}}
-          <a class="navbar-brand" style="color: black;margin-left: 10px;font-weight: bold" href="#">Bina Darma Pinjam Barang</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
+      <div class="container-fluid d-flex align-items-center">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZ--DVJrjEIlDffr0wFkn_itwUUPYrggwVw&s" width="3%" alt="">
+    <a class="navbar-brand" style="color: black; margin-left: 10px; font-weight: bold;" href="#">
+        Bina Darma Pinjam Barang
+    </a>
 
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Menu</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <center>
-                        <img width="30%" class="mb-3 rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNFExICXEItiU4Oj7lUYd3k8VkjEaz-08R_g&s"  alt="">
-                    </center>
-                    <hr>
-                    <div class="mb-2">
-                        <a href="{{url('/')}}" class="btn btn-outline-primary w-100 rounded-pill">Beranda</a>
-                    </div>
-                    @if(Auth::user())
-                    <div class="mb-2">
-                        <a href="{{url('barangmasuk')}}" class="btn btn-outline-primary w-100 rounded-pill">Barang Masuk</a>
-                    </div>
-                    <div class="mb-2">
-                        <a href="{{url('barangkeluar')}}" class="btn btn-outline-primary w-100 rounded-pill">Barang Keluar</a>
-                    </div>
-                    <div class="mb-2">
-                      <a href="{{url('logout')}}" class="btn btn-outline-primary w-100 rounded-pill">Logout</a>
-                    </div>
-                    @else
-                    <div class="mb-2">
-                        <a href="{{url('login')}}" class="btn btn-outline-primary w-100 rounded-pill">Login</a>
-                    </div>
-                    @endif
-                  </div>
-                </div>
-             
-             
-            </ul>
-           
-          </div>
+    {{-- Tombol Menu langsung tampil di kanan (tidak collapsible) --}}
+    <div class="ms-auto">
+        <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            Menu
+        </button>
+    </div>
+
+    {{-- Offcanvas Menu --}}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <div class="offcanvas-body">
+            <center>
+                <img width="30%" class="mb-3 rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQZ--DVJrjEIlDffr0wFkn_itwUUPYrggwVw&s" alt="">
+            </center>
+            <hr>
+            <div class="mb-2">
+                <a href="{{url('/')}}" class="btn btn-outline-primary w-100 rounded-pill">Beranda</a>
+            </div>
+            @if(Auth::user())
+            <div class="mb-2">
+                <a href="{{url('barangmasuk')}}" class="btn btn-outline-primary w-100 rounded-pill">Barang Masuk</a>
+            </div>
+            <div class="mb-2">
+                <a href="{{url('barangkeluar')}}" class="btn btn-outline-primary w-100 rounded-pill">Barang Keluar</a>
+            </div>
+            <div class="mb-2">
+                <a href="{{url('logout')}}" class="btn btn-outline-primary w-100 rounded-pill">Logout</a>
+            </div>
+            @else
+            <div class="mb-2">
+                <a href="{{url('login')}}" class="btn btn-outline-primary w-100 rounded-pill">Login</a>
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
       </nav>
 
       <div>
